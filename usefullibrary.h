@@ -77,4 +77,21 @@ int Array_XOR(vector<int> &Array)
     return c;
 }
 
+// store all substrings in unordered set and return the set
+unordered_set<string> substring_in_set(string str)
+{
+    unordered_set<string> st;
+    st.insert(str);
+    for (int i = 0; i < str.size(); i++)
+    {
+        for (int j = 1; j < str.size(); j++)
+        {
+            string sub_str = str.substr(i, j);
+            st.insert(sub_str);
+        }
+    }
+
+    return st;
+}
+
 #endif
